@@ -255,7 +255,7 @@ function resetGame() {
   P.range = 520;
   P.xp = 0; P.level = 1; P.xpNext = 6;
   P.dashCd = 0; P.dashT = 0; P.iFrame = 0;
-  P.magnet = 90; P.crit = 0; P.lifesteal = 0; P.regen = 0;
+  P.magnet = 90; P.crit = 0; P.lifesteal = 0; P.regen = 0; P.explode = 0;
   P.trail = [];
 
   enemies = []; bullets = []; ebullets = []; orbs = []; parts = []; texts = []; rings = [];
