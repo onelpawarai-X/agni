@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060a">
+<title>অগ্নি — টিকে থাকো</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<!-- ============ HUD ============ -->
+<div id="hud" class="hide">
+  <div id="xpwrap"><div id="xpfill"></div></div>
+  <div class="hud-row">
+    <div id="hpbox">
+      <div id="hpfill"></div>
+      <span id="hptext">100</span>
+    </div>
+    <div id="wavebox">তরঙ্গ <b id="waveN">১</b></div>
+    <div id="scorebox"><b id="scoreN">০</b></div>
+  </div>
+</div>
+
+<div id="dashbtn" class="hide"><span>⚡</span></div>
+
+<!-- ============ TITLE ============ -->
+<section id="scr-title" class="overlay">
+  <div class="inner">
+    <div class="logo">অগ্নি</div>
+    <p class="tag">টিকে থাকো। যতক্ষণ পারো।</p>
+    <button id="btn-play" class="cta">শুরু করি</button>
+    <div id="bestline" class="best"></div>
+    <div class="howto">
+      <div class="ht"><b>চলাফেরা</b> — WASD / তীর চিহ্ন, বা স্ক্রিনে আঙুল টেনে</div>
+      <div class="ht"><b>গোলা</b> — নিজে থেকেই ছোঁড়ে, কাছের শত্রুকে</div>
+      <div class="ht"><b>ড্যাশ</b> — Space, বা ⚡ বোতাম। ড্যাশে অমর থাকো</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UPGRADE ============ -->
+<section id="scr-up" class="overlay hide">
+  <div class="inner">
+    <div class="up-title">শক্তিশালী হও</div>
+    <div id="up-list" class="up-list"></div>
+  </div>
+</section>
+
+<!-- ============ PAUSE ============ -->
+<section id="scr-pause" class="overlay hide">
+  <div class="inner">
+    <div class="up-title">বিরতি</div>
+    <button id="btn-resume" class="cta">চালিয়ে যাই</button>
+    <button id="btn-quit" class="cta ghost">শুরু থেকে</button>
+  </div>
+</section>
+
+<!-- ============ GAME OVER ============ -->
+<section id="scr-dead" class="overlay hide">
+  <div class="inner">
+    <div class="dead-ico">✦</div>
+    <div class="up-title dead">শেষ</div>
+    <div id="dead-stats" class="dead-stats"></div>
+    <button id="btn-again" class="cta">আবার</button>
+  </div>
+</section>
+
+<script src="game.js"></script>
+</body>
+</html>
