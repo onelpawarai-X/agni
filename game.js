@@ -95,8 +95,11 @@ const keys = {};
 addEventListener('keydown', e => {
   keys[e.key.toLowerCase()] = true;
   if (e.key === ' ' || e.key === 'Shift') { e.preventDefault(); tryDash(); }
-  if (e.key === 'Escape' && G.state === 'play') pauseGame();
-  if (e.key === 'Escape' && G.state === 'pause') resumeGame();
+  // one branch only: pauseGame() flips the state, so a second `if` would resume on the same keypress
+  if (e.key === 'Escape') {
+    if (G.state === 'play') pauseGame();
+    else if (G.state === 'pause') resumeGame();
+  }
 });
 addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
 
