@@ -6,6 +6,9 @@ const cv = document.getElementById('cv');
 const ctx = cv.getContext('2d', { alpha: false });
 
 let W = 0, H = 0, DPR = 1;
+// Keep the visible world area roughly constant across screen sizes, so a phone and a
+// desktop see a comparable amount of action instead of the phone seeing a keyhole.
+let ZOOM = 2.15;
 function resize() {
   DPR = Math.min(window.devicePixelRatio || 1, 2);
   W = window.innerWidth;
@@ -15,6 +18,7 @@ function resize() {
   cv.style.width = W + 'px';
   cv.style.height = H + 'px';
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  computeZoom();
 }
 window.addEventListener('resize', resize);
 resize();
@@ -57,7 +61,11 @@ const sfx = {
 };
 
 /* ---------------- world / camera ---------------- */
-const ZOOM = 2.15;
+function computeZoom() {
+  // resize() runs before the utils below are initialised, so no clamp() here
+  const short = Math.min(W, H);
+  ZOOM = Math.min(2.2, Math.max(1.15, short / 330));
+}
 const world = { w: 2600, h: 2600 };
 const cam = { x: 0, y: 0, shake: 0, shakeT: 0 };
 function shake(amt) { cam.shake = Math.max(cam.shake, amt); cam.shakeT = 1; }
